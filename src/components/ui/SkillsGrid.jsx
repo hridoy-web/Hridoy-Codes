@@ -19,7 +19,7 @@ export default function SkillsGrid() {
             aria-labelledby="skills-heading" 
             className="w-full max-w-6xl mx-auto px-4 py-8 font-sans"
         >
-            {/* Category Tab Switcher Nav */}
+            {/* Category Tab Switcher */}
             <nav 
                 aria-label="Skill Categories" 
                 className="flex justify-center mb-10 px-2"
@@ -32,7 +32,6 @@ export default function SkillsGrid() {
                     {categories.map((tab) => {
                         const isActive = activeTab === tab.id;
                         
-                        // "Backend & Security" টেক্সটকে মোবাইলে এক লাইনে রাখার জন্য "Backend" ফিল্টার
                         const displayLabel = tab.label === 'Backend & Security' ? 'Backend' : tab.label;
 
                         return (
@@ -84,7 +83,7 @@ export default function SkillsGrid() {
                                 style={{ backgroundColor: skill.color }}
                             />
 
-                            {/* Header: React Icon & Level Badge (Responsive Badge Fix) */}
+                            {/* Header: Level Badge */}
                             <div className="w-full flex items-center justify-between mb-4 z-10 gap-1">
                                 <div className="text-3xl sm:text-4xl transition-transform duration-300 group-hover:scale-110 flex items-center justify-center shrink-0">
                                     {IconComponent && (
@@ -103,7 +102,7 @@ export default function SkillsGrid() {
                                     )}
                                 </div>
 
-                                {/* Responsive Level Badge - Single Line Fix */}
+                                {/* Responsive Level Badge */}
                                 <span className="text-[9px] sm:text-[10px] font-mono font-bold tracking-tight text-purple-700 dark:text-purple-300 bg-purple-50 dark:bg-purple-950/60 px-2 py-1 rounded-lg border border-purple-200/60 dark:border-purple-800/50 whitespace-nowrap">
                                     {skill.level}
                                 </span>

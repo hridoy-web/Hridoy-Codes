@@ -3,7 +3,7 @@ import { FiArrowRight } from 'react-icons/fi';
 
 export default function HighlightCard() {
   return (
-    <div className="mt-12 relative overflow-hidden rounded-3xl p-6 sm:p-8 bg-gradient-to-br from-slate-900/90 via-slate-900/95 to-slate-950 dark:from-slate-900 dark:via-slate-900/80 dark:to-slate-950 text-white border border-slate-800/80 shadow-xl hover:shadow-2xl hover:border-purple-500/40 transition-all duration-500 group">
+    <div className="mt-6 relative overflow-hidden rounded-3xl p-6 sm:p-8 bg-gradient-to-br from-slate-900/90 via-slate-900/95 to-slate-950 dark:from-slate-900 dark:via-slate-900/80 dark:to-slate-950 text-white border border-slate-800/80 shadow-xl hover:shadow-2xl hover:border-purple-500/40 transition-all duration-500 group">
       
       {/* Background Soft Glow Effect */}
       <div className="absolute -top-24 -right-24 w-72 h-72 bg-purple-600/20 rounded-full blur-3xl pointer-events-none group-hover:bg-purple-600/30 transition-all duration-500" />
@@ -20,7 +20,7 @@ export default function HighlightCard() {
             </span>
           </div>
 
-          <h3 className="text-xl sm:text-2xl font-bold tracking-tight text-white group-hover:text-purple-200 transition-colors duration-300">
+          <h3 className="font-heading text-xl sm:text-2xl md:text-3xl font-bold tracking-tight text-white group-hover:text-purple-200 transition-colors duration-300 leading-relaxed">
             Always expanding the Tech Stack
           </h3>
 

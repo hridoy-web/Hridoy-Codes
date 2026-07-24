@@ -1,5 +1,6 @@
 import { Syne, Urbanist } from "next/font/google";
 import "./globals.css";
+import Navbar from "@/components/common/Navbar";
 
 const syne = Syne({
   subsets: ['latin'],
@@ -67,7 +68,7 @@ export const metadata = {
     title: "Hridoy Codes | Full Stack & MERN Developer",
     description:
       "Portfolio of Hridoy Chowdhury — Next.js, Node.js, and MERN Stack Web Development Services.",
-    creator: "@hridoyChyWebDev", 
+    creator: "@hridoyChyWebDev",
   },
 
   // Canonical URL (Duplicate issue resolve)
@@ -82,7 +83,7 @@ export default function RootLayout({ children }) {
       className={`${syne.variable} ${urbanist.variable} antialiased`}
     >
       <body className="font-sans min-h-screen flex flex-col">
-
+        <Navbar />
 
         <main className="grow">
           {children}

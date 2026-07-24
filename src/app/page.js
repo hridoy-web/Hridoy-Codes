@@ -1,4 +1,5 @@
 import AboutSection from "@/components/common/HomeSections.jsx/AboutSection";
+import ContactSection from "@/components/common/HomeSections.jsx/ContactSection";
 import EducationSection from "@/components/common/HomeSections.jsx/EducationSection";
 import HeroSection from "@/components/common/HomeSections.jsx/HeroSection";
 import SkillsSection from "@/components/common/HomeSections.jsx/SkillsSection";
@@ -10,7 +11,8 @@ export default function Home() {
       <HeroSection />
       <AboutSection />
       <SkillsSection />
-      <EducationSection/>
+      <EducationSection />
+      <ContactSection />
     </section>
   );
 }

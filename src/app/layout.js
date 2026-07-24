@@ -1,4 +1,5 @@
 import { Syne, Urbanist } from "next/font/google";
+import 'devicon/devicon.min.css';
 import "./globals.css";
 import Navbar from "@/components/common/Navbar";
 

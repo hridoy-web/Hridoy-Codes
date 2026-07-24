@@ -11,3 +11,8 @@
   --color-brand-dark: #0F172A;      /* Deep Slate Text */
   --color-brand-muted: #64748B;     /* Subtitle Text */
 }
+
+html {
+  scroll-behavior: smooth;
+  overflow-anchor: none; 
+}

@@ -28,7 +28,7 @@ export default function HeroSection() {
 
             {/* Main Headline */}
             <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-brand-dark tracking-tight leading-[1.18] mb-6 font-sans">
-              Hi, I'm <span className="text-brand-primary">Hridoy Chowdhury</span>. <br />
+              Hi, I&apos;m <span className="text-brand-primary">Hridoy Chowdhury</span>. <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-primary via-purple-600 to-indigo-600">
                 Full-Stack MERN Developer
               </span>
@@ -39,7 +39,7 @@ export default function HeroSection() {
               I craft responsive, high-performance web applications using MongoDB, Express, React, Node.js, and Next.js—focused on clean code and seamless user experiences.
             </p>
 
-            {/* Action Buttons & Micro-Interactions */}
+            {/* Action Buttons */}
             <div className="flex flex-wrap items-center gap-4 w-full sm:w-auto">
               <Link
                 href="#projects"

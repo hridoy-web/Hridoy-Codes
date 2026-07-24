@@ -1,4 +1,4 @@
-// components/Logo.jsx
+
 import Link from 'next/link';
 import { HiCode } from 'react-icons/hi';
 

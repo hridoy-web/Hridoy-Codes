@@ -3,7 +3,7 @@ import { HiSparkles } from 'react-icons/hi2';
 
 export default function AboutSection() {
     return (
-        <section id="about" className="relative py-20 lg:py-28 bg-slate-50/70 overflow-hidden">
+        <section id="about" className="relative py-20 lg:py-24 bg-slate-50/70 overflow-hidden">
             {/* Dynamic Background Glows */}
             <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[500px] h-[500px] bg-purple-400/10 blur-[150px] rounded-full -z-10 pointer-events-none" />
 

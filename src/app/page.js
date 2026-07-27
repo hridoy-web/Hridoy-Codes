@@ -7,7 +7,7 @@ import SkillsSection from "@/components/common/HomeSections.jsx/SkillsSection";
 
 export default function Home() {
   return (
-    <div className="flex flex-col gap-12 md:gap-20">
+    <div className="flex flex-col">
       <section id="hero">
         <HeroSection />
       </section>

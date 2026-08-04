@@ -27,7 +27,7 @@ export default function HeroSection() {
             </div>
 
             {/* Main Headline */}
-            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-brand-dark tracking-tight leading-[1.18] mb-6 font-sans">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-brand-dark tracking-tight leading-tight mb-6 font-sans">
               Hi, I&apos;m <span className="text-brand-primary">Hridoy Chowdhury</span>. <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-primary via-purple-600 to-indigo-600">
                 Full-Stack MERN Developer

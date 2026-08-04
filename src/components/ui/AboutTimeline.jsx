@@ -2,10 +2,10 @@
 
 import { useRef } from 'react';
 import { motion, useScroll, useSpring } from 'framer-motion';
-import { 
-  HiDevicePhoneMobile, 
-  HiAcademicCap, 
-  HiTrophy, 
+import {
+  HiDevicePhoneMobile,
+  HiAcademicCap,
+  HiTrophy,
   HiPuzzlePiece,
   HiCheck,
   HiArrowTrendingUp
@@ -13,20 +13,20 @@ import {
 import { FaGamepad, FaBaseball } from 'react-icons/fa6';
 
 const leftCardVariants = {
-  hidden: { opacity: 0, x: -50 },
-  visible: { 
-    opacity: 1, 
-    x: 0, 
-    transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] } 
+  hidden: { opacity: 0, y: 20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.5, ease: 'easeOut' }
   }
 };
 
 const rightCardVariants = {
-  hidden: { opacity: 0, x: 50 },
-  visible: { 
-    opacity: 1, 
-    x: 0, 
-    transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] } 
+  hidden: { opacity: 0, y: 20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.5, ease: 'easeOut' }
   }
 };
 
@@ -45,35 +45,35 @@ export default function AboutTimeline() {
   });
 
   return (
-    <div ref={containerRef} className="relative">
-      {/* Base Inactive Track */}
-      <div className="absolute left-6 md:left-1/2 top-0 bottom-0 w-1 bg-slate-200 -translate-x-1/2 rounded-full" />
-      
-      {/* Animated Active Scroll Progress Line */}
-      <motion.div 
+    <div ref={containerRef} className="relative w-full overflow-hidden">
+      {/* Base Track - Desktop Only */}
+      <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-1 bg-slate-200 -translate-x-1/2 rounded-full" />
+
+      {/* Animated Scroll Line - Desktop Only */}
+      <motion.div
         style={{ scaleY }}
-        className="absolute left-6 md:left-1/2 top-0 bottom-0 w-1 bg-gradient-to-b from-purple-500 via-brand-primary to-emerald-400 -translate-x-1/2 rounded-full origin-top z-0 shadow-[0_0_12px_rgba(147,51,234,0.5)]"
+        className="hidden md:block absolute left-1/2 top-0 bottom-0 w-1 bg-linear-to-b from-purple-500 via-brand-primary to-emerald-400 -translate-x-1/2 rounded-full origin-top z-0 shadow-[0_0_12px_rgba(147,51,234,0.5)]"
       />
 
-      <div className="space-y-12 md:space-y-16 relative z-10">
-        
+      <div className="space-y-6 sm:space-y-10 md:space-y-16 relative z-10 w-full">
+
         {/* STEP 1 */}
-        <div className="relative flex flex-col md:flex-row items-center">
-          <motion.div 
+        <div className="relative flex flex-col md:flex-row items-center w-full">
+          <motion.div
             variants={leftCardVariants}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, margin: "-80px" }}
-            className="w-full md:w-1/2 md:pr-12 pl-12 md:pl-0"
+            viewport={{ once: true, margin: "-50px" }}
+            className="w-full md:w-1/2 md:pr-12"
           >
-            <div className="bg-white p-6 sm:p-8 rounded-3xl border border-slate-200/80 shadow-xl shadow-slate-200/40 relative group hover:shadow-2xl transition-all duration-300">
+            <div className="bg-white p-5 sm:p-8 rounded-3xl border border-slate-200/80 shadow-xl shadow-slate-200/40 relative group hover:shadow-2xl transition-all duration-300 w-full">
               <div className="flex items-center gap-3 mb-4">
-                <span className="p-2.5 rounded-2xl bg-purple-100 text-purple-600">
+                <span className="p-2.5 rounded-2xl bg-purple-100 text-purple-600 shrink-0">
                   <HiDevicePhoneMobile className="w-6 h-6" />
                 </span>
                 <div>
                   <span className="text-xs font-mono font-bold text-purple-600 uppercase tracking-wider block">Step 01 • The Spark</span>
-                  <h3 className="text-xl font-bold text-brand-dark">Smartphone to Web</h3>
+                  <h3 className="text-lg sm:text-xl font-bold text-brand-dark">Smartphone to Web</h3>
                 </div>
               </div>
               <p className="text-slate-600 text-sm sm:text-base leading-relaxed font-normal">
@@ -82,7 +82,7 @@ export default function AboutTimeline() {
             </div>
           </motion.div>
 
-          <div className="absolute left-6 md:left-1/2 -translate-x-1/2 p-2 bg-white rounded-full border-4 border-purple-500 text-purple-600 z-10 shadow-md">
+          <div className="hidden md:flex absolute left-1/2 -translate-x-1/2 p-2 bg-white rounded-full border-4 border-purple-500 text-purple-600 z-10 shadow-md">
             <HiCheck className="w-4 h-4 font-bold" />
           </div>
 
@@ -90,28 +90,28 @@ export default function AboutTimeline() {
         </div>
 
         {/* STEP 2 */}
-        <div className="relative flex flex-col md:flex-row items-center">
+        <div className="relative flex flex-col md:flex-row items-center w-full">
           <div className="hidden md:block w-1/2" />
 
-          <div className="absolute left-6 md:left-1/2 -translate-x-1/2 p-2 bg-white rounded-full border-4 border-brand-primary text-brand-primary z-10 shadow-md">
+          <div className="hidden md:flex absolute left-1/2 -translate-x-1/2 p-2 bg-white rounded-full border-4 border-brand-primary text-brand-primary z-10 shadow-md">
             <HiAcademicCap className="w-4 h-4 font-bold" />
           </div>
 
-          <motion.div 
+          <motion.div
             variants={rightCardVariants}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, margin: "-80px" }}
-            className="w-full md:w-1/2 md:pl-12 pl-12"
+            viewport={{ once: true, margin: "-50px" }}
+            className="w-full md:w-1/2 md:pl-12"
           >
-            <div className="bg-white p-6 sm:p-8 rounded-3xl border border-slate-200/80 shadow-xl shadow-slate-200/40 relative group hover:shadow-2xl transition-all duration-300">
+            <div className="bg-white p-5 sm:p-8 rounded-3xl border border-slate-200/80 shadow-xl shadow-slate-200/40 relative group hover:shadow-2xl transition-all duration-300 w-full">
               <div className="flex items-center gap-3 mb-4">
-                <span className="p-2.5 rounded-2xl bg-brand-primary/10 text-brand-primary">
+                <span className="p-2.5 rounded-2xl bg-brand-primary/10 text-brand-primary shrink-0">
                   <HiAcademicCap className="w-6 h-6" />
                 </span>
                 <div>
                   <span className="text-xs font-mono font-bold text-brand-primary uppercase tracking-wider block">Step 02 • Intensive Training</span>
-                  <h3 className="text-xl font-bold text-brand-dark">6 Months &amp; 11 Assignments</h3>
+                  <h3 className="text-lg sm:text-xl font-bold text-brand-dark">6 Months &amp; 11 Assignments</h3>
                 </div>
               </div>
               <p className="text-slate-600 text-sm sm:text-base leading-relaxed font-normal">
@@ -122,23 +122,23 @@ export default function AboutTimeline() {
         </div>
 
         {/* STEP 3 */}
-        <div className="relative flex flex-col md:flex-row items-center">
-          <motion.div 
+        <div className="relative flex flex-col md:flex-row items-center w-full">
+          <motion.div
             variants={leftCardVariants}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, margin: "-80px" }}
-            className="w-full md:w-1/2 md:pr-12 pl-12 md:pl-0"
+            viewport={{ once: true, margin: "-50px" }}
+            className="w-full md:w-1/2 md:pr-12"
           >
-            <div className="bg-slate-950 text-white p-6 sm:p-8 rounded-3xl border border-slate-800 shadow-2xl relative overflow-hidden group">
+            <div className="bg-slate-950 text-white p-5 sm:p-8 rounded-3xl border border-slate-800 shadow-2xl relative overflow-hidden group w-full">
               <div className="absolute -bottom-10 -right-10 w-36 h-36 bg-brand-primary/30 blur-3xl rounded-full pointer-events-none" />
               <div className="flex items-center gap-3 mb-4">
-                <span className="p-2.5 rounded-2xl bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">
+                <span className="p-2.5 rounded-2xl bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 shrink-0">
                   <HiTrophy className="w-6 h-6" />
                 </span>
                 <div>
                   <span className="text-xs font-mono font-bold text-emerald-400 uppercase tracking-wider block">Step 03 • Major Milestone</span>
-                  <h3 className="text-xl font-bold text-white">Selected for SCIC</h3>
+                  <h3 className="text-lg sm:text-xl font-bold text-white">Selected for SCIC</h3>
                 </div>
               </div>
               <p className="text-slate-300 text-sm sm:text-base leading-relaxed font-normal">
@@ -147,7 +147,7 @@ export default function AboutTimeline() {
             </div>
           </motion.div>
 
-          <div className="absolute left-6 md:left-1/2 -translate-x-1/2 p-2 bg-slate-950 rounded-full border-4 border-emerald-400 text-emerald-400 z-10 shadow-lg">
+          <div className="hidden md:flex absolute left-1/2 -translate-x-1/2 p-2 bg-slate-950 rounded-full border-4 border-emerald-400 text-emerald-400 z-10 shadow-lg">
             <HiTrophy className="w-4 h-4" />
           </div>
 
@@ -155,28 +155,28 @@ export default function AboutTimeline() {
         </div>
 
         {/* STEP 4 */}
-        <div className="relative flex flex-col md:flex-row items-center">
+        <div className="relative flex flex-col md:flex-row items-center w-full">
           <div className="hidden md:block w-1/2" />
 
-          <div className="absolute left-6 md:left-1/2 -translate-x-1/2 p-2 bg-white rounded-full border-4 border-indigo-500 text-indigo-500 z-10 shadow-md">
+          <div className="hidden md:flex absolute left-1/2 -translate-x-1/2 p-2 bg-white rounded-full border-4 border-indigo-500 text-indigo-500 z-10 shadow-md">
             <HiPuzzlePiece className="w-4 h-4" />
           </div>
 
-          <motion.div 
+          <motion.div
             variants={rightCardVariants}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, margin: "-80px" }}
-            className="w-full md:w-1/2 md:pl-12 pl-12"
+            viewport={{ once: true, margin: "-50px" }}
+            className="w-full md:w-1/2 md:pl-12"
           >
-            <div className="bg-white p-6 sm:p-8 rounded-3xl border border-slate-200/80 shadow-xl shadow-slate-200/40 relative group hover:shadow-2xl transition-all duration-300">
+            <div className="bg-white p-5 sm:p-8 rounded-3xl border border-slate-200/80 shadow-xl shadow-slate-200/40 relative group hover:shadow-2xl transition-all duration-300 w-full">
               <div className="flex items-center gap-3 mb-4">
-                <span className="p-2.5 rounded-2xl bg-indigo-100 text-indigo-600">
+                <span className="p-2.5 rounded-2xl bg-indigo-100 text-indigo-600 shrink-0">
                   <HiPuzzlePiece className="w-6 h-6" />
                 </span>
                 <div>
                   <span className="text-xs font-mono font-bold text-indigo-600 uppercase tracking-wider block">Step 04 • Standards &amp; Balance</span>
-                  <h3 className="text-xl font-bold text-brand-dark">Pixel Perfectionist</h3>
+                  <h3 className="text-lg sm:text-xl font-bold text-brand-dark">Pixel Perfectionist</h3>
                 </div>
               </div>
               <p className="text-slate-600 text-sm sm:text-base leading-relaxed font-normal mb-6">
@@ -198,17 +198,17 @@ export default function AboutTimeline() {
       </div>
 
       {/* ENDING BANNER */}
-      <motion.div 
+      <motion.div
         initial={{ opacity: 0, scale: 0.95, y: 30 }}
         whileInView={{ opacity: 1, scale: 1, y: 0 }}
         viewport={{ once: true, margin: "-50px" }}
         transition={{ duration: 0.6, ease: "easeOut" }}
-        className="mt-20 text-center relative z-20"
+        className="mt-12 sm:mt-16 md:mt-20 text-center relative z-20 w-full"
       >
-        <div className="inline-block p-1 rounded-3xl bg-gradient-to-r from-brand-primary via-purple-600 to-emerald-400 shadow-xl">
-          <div className="bg-slate-950 text-white px-8 py-8 rounded-[22px] max-w-2xl mx-auto relative overflow-hidden">
+        <div className="inline-block p-1 rounded-3xl bg-linear-to-r from-brand-primary via-purple-600 to-emerald-400 shadow-xl w-full max-w-2xl">
+          <div className="bg-slate-950 text-white px-5 py-6 sm:px-8 sm:py-8 rounded-[22px] relative overflow-hidden">
             <div className="absolute top-0 right-0 w-32 h-32 bg-emerald-500/10 rounded-full blur-2xl pointer-events-none" />
-            
+
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-400 text-xs font-semibold mb-3">
               <HiArrowTrendingUp className="w-4 h-4" />
               <span>Never Ending Pursuit</span>
@@ -217,7 +217,7 @@ export default function AboutTimeline() {
             <h3 className="text-xl sm:text-2xl font-bold text-white mb-3">
               The Story Doesn&apos;t End Here
             </h3>
-            
+
             <p className="text-slate-300 text-sm sm:text-base leading-relaxed font-normal">
               Every 3 to 4 days, I challenge myself with a new assignment, new architecture, or emerging technology. I am continuously upgrading my skillset to stay ahead and build industry-ready solutions.
             </p>

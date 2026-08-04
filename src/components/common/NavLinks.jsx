@@ -75,7 +75,7 @@ export default function NavLinks() {
   return (
     <>
       {/* Desktop Navigation */}
-      <nav className="hidden md:flex items-center gap-1 p-1.5 bg-slate-100/90 dark:bg-slate-900/90 backdrop-blur-xl rounded-full border border-slate-200/80 dark:border-slate-800 shadow-sm">
+      <nav className="hidden lg:flex items-center gap-1 p-1.5 bg-slate-100/90 dark:bg-slate-900/90 backdrop-blur-xl rounded-full border border-slate-200/80 dark:border-slate-800 shadow-sm">
         {navItems.map((item) => {
           const isActive = pathname === '/' && activeSection === item.id;
           const Icon = item.icon;
@@ -99,7 +99,7 @@ export default function NavLinks() {
       </nav>
 
       {/* Mobile Toggle Button */}
-      <div className="md:hidden flex items-center">
+      <div className="lg:hidden flex items-center">
         <button
           onClick={toggleMenu}
           type="button"
@@ -113,7 +113,7 @@ export default function NavLinks() {
 
       {/* Mobile Dropdown Menu */}
       {isOpen && (
-        <div className="absolute top-20 left-4 right-4 p-3 rounded-3xl bg-white/95 dark:bg-slate-900/95 backdrop-blur-2xl border border-slate-200 dark:border-slate-800 shadow-2xl md:hidden z-50 transition-all duration-300">
+        <div className="absolute top-20 left-4 right-4 p-3 rounded-3xl bg-white/95 dark:bg-slate-900/95 backdrop-blur-2xl border border-slate-200 dark:border-slate-800 shadow-2xl lg:hidden z-50 transition-all duration-300">
           <ul className="flex flex-col gap-1.5">
             {navItems.map((item) => {
               const isActive = pathname === '/' && activeSection === item.id;

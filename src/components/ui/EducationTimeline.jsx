@@ -1,19 +1,29 @@
 'use client';
 
-import { useRef } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import { motion, useScroll, useSpring, useTransform } from 'framer-motion';
 import { HiBuildingLibrary, HiCalendarDays, HiCheck, HiArrowPath, HiAcademicCap, HiBookOpen } from 'react-icons/hi2';
 
 export default function EducationTimeline({ data }) {
   const containerRef = useRef(null);
+  const [isDesktop, setIsDesktop] = useState(false);
 
-  // Smooth Scroll Progress Tracking
+  useEffect(() => {
+    const handleResize = () => {
+      setIsDesktop(window.innerWidth >= 768);
+    };
+    
+    handleResize(); // Initial check
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  // Smooth Scroll Progress Tracking 
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ['start 75%', 'end 85%']
   });
 
-  // Extremely Smooth Spring Motion
   const scaleY = useSpring(scrollYProgress, {
     stiffness: 90,
     damping: 20,
@@ -23,39 +33,40 @@ export default function EducationTimeline({ data }) {
   const laserTop = useTransform(scrollYProgress, [0, 1], ['0%', '100%']);
 
   return (
-    <div ref={containerRef} className="relative max-w-5xl mx-auto">
+    <div ref={containerRef} className="relative max-w-5xl mx-auto overflow-hidden">
       
-      {/* TIMELINE LINE & GLOWING TRAVELING NODE */}
-      <div className="absolute left-5 md:left-1/2 top-6 bottom-6 -translate-x-1/2 w-0.5 bg-slate-200 dark:bg-slate-800 z-0">
-        <motion.div 
-          style={{ scaleY }}
-          className="w-full h-full bg-gradient-to-b from-purple-500 via-indigo-500 to-purple-600 origin-top"
-        />
+      {/* TIMELINE LINE & GLOWING TRAVELING NODE - Desktop Only */}
+      {isDesktop && (
+        <div className="absolute left-1/2 top-6 bottom-6 -translate-x-1/2 w-0.5 bg-slate-200 dark:bg-slate-800 z-0">
+          <motion.div 
+            style={{ scaleY }}
+            className="w-full h-full bg-gradient-to-b from-purple-500 via-indigo-500 to-purple-600 origin-top"
+          />
 
-        {/* Glowing Laser Light Node */}
-        <motion.div 
-          style={{ top: laserTop }}
-          className="absolute left-1/2 -translate-x-1/2 w-3.5 h-3.5 rounded-full bg-purple-500 border-2 border-white dark:border-slate-900 shadow-[0_0_15px_#a855f7] z-10"
-        />
-      </div>
+          {/* Glowing Laser Light Node */}
+          <motion.div 
+            style={{ top: laserTop }}
+            className="absolute left-1/2 -translate-x-1/2 w-3.5 h-3.5 rounded-full bg-purple-500 border-2 border-white dark:border-slate-900 shadow-[0_0_15px_#a855f7] z-10"
+          />
+        </div>
+      )}
 
       {/* ITEMS LIST */}
-      <div className="space-y-12 md:space-y-16 relative z-10">
+      <div className="space-y-8 sm:space-y-12 md:space-y-16 relative z-10 w-full">
         {data.map((item, index) => {
           const isEven = index % 2 === 0;
 
           return (
             <article 
               key={item.id}
-              className={`relative flex flex-col md:flex-row items-start md:items-center ${
+              className={`relative flex flex-col md:flex-row items-center w-full ${
                 isEven ? 'md:flex-row-reverse' : ''
               }`}
             >
-              {/* Desktop Empty Space Side */}
+             
               <div className="hidden md:block w-1/2" />
 
-              {/* Center Timeline Badge */}
-              <div className="absolute left-5 md:left-1/2 -translate-x-1/2 top-6 md:top-1/2 md:-translate-y-1/2 p-2 bg-white dark:bg-slate-900 rounded-full border-2 border-purple-500 text-purple-600 dark:text-purple-400 z-20 shadow-lg ring-4 ring-purple-50 dark:ring-purple-950/40">
+              <div className="hidden md:flex absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 p-2 bg-white dark:bg-slate-900 rounded-full border-2 border-purple-500 text-purple-600 dark:text-purple-400 z-20 shadow-lg ring-4 ring-purple-50 dark:ring-purple-950/40">
                 {item.status === 'Completed' ? (
                   <HiCheck className="w-4 h-4 font-bold" />
                 ) : (
@@ -64,19 +75,12 @@ export default function EducationTimeline({ data }) {
               </div>
 
               {/* Card Container */}
-              <motion.div 
-                initial={{ opacity: 0, x: isEven ? 45 : -45, y: 15 }}
-                whileInView={{ opacity: 1, x: 0, y: 0 }}
-                viewport={{ once: true, margin: "-60px" }}
-                transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-                className={`w-full md:w-1/2 pl-12 ${
+              <div 
+                className={`w-full md:w-1/2 ${
                   isEven ? 'md:pl-12 md:pr-0' : 'md:pr-12 md:pl-0'
                 }`}
               >
-                <motion.div 
-                  whileHover={{ y: -4, transition: { duration: 0.2, ease: "easeOut" } }}
-                  className="bg-white dark:bg-slate-900 p-6 sm:p-8 rounded-3xl border border-slate-200/90 dark:border-slate-800/90 shadow-xl shadow-slate-200/30 dark:shadow-none hover:border-purple-300 dark:hover:border-purple-800 transition-colors duration-300"
-                >
+                <div className="bg-white dark:bg-slate-900 p-5 sm:p-8 rounded-3xl border border-slate-200/90 dark:border-slate-800/90 shadow-xl shadow-slate-200/30 dark:shadow-none hover:border-purple-300 dark:hover:border-purple-800 transition-colors duration-300 w-full">
                   
                   {/* Card Header */}
                   <header className="flex items-start justify-between gap-3 mb-3">
@@ -128,8 +132,8 @@ export default function EducationTimeline({ data }) {
                     )}
                   </div>
 
-                  {/* Readable Description */}
-                  <p className="text-slate-700 dark:text-slate-300 text-base leading-relaxed font-normal mb-6">
+                  {/* Description */}
+                  <p className="text-slate-700 dark:text-slate-300 text-sm sm:text-base leading-relaxed font-normal mb-6">
                     {item.description}
                   </p>
 
@@ -144,8 +148,8 @@ export default function EducationTimeline({ data }) {
                     ))}
                   </ul>
 
-                </motion.div>
-              </motion.div>
+                </div>
+              </div>
 
             </article>
           );

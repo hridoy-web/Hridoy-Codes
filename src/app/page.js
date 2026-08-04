@@ -12,17 +12,17 @@ export default function Home() {
         <HeroSection />
       </section>
 
-      {/* <section id="about">
+      <section id="about">
         <AboutSection />
-      </section> */}
+      </section>
 
       <section id="skills">
         <SkillsSection />
       </section>
 
-      {/* <section id="education">
+      <section id="education">
         <EducationSection />
-      </section> */}
+      </section>
 
       <section id="projects">
         <ProjectsSection />

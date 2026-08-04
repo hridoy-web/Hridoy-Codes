@@ -8,6 +8,7 @@ export default function SkillsSection() {
         <section id="skills" className="relative py-20 lg:py-28 bg-white overflow-hidden">
             {/* Background Decorative Soft Lights */}
             <div className="absolute top-1/3 left-0 w-72 h-72 bg-purple-300/10 blur-[120px] rounded-full pointer-events-none -z-10" />
+            
             <div className="absolute bottom-10 right-0 w-80 h-80 bg-brand-primary/10 blur-[140px] rounded-full pointer-events-none -z-10" />
 
             <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">

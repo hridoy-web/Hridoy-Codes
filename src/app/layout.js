@@ -72,7 +72,7 @@ export default function RootLayout({ children }) {
       lang="en"
       className={`${syne.variable} ${urbanist.variable} antialiased scroll-smooth`}
     >
-      <body className="font-sans min-h-screen flex flex-col">
+      <body className="font-sans min-h-screen flex flex-col overflow-x-hidden">
         <Navbar />
         <main className="grow">
           {children}

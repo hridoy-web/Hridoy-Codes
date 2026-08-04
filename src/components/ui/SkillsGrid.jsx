@@ -67,7 +67,7 @@ export default function SkillsGrid() {
                 id={`panel-${activeTab}`}
                 role="tabpanel"
                 aria-labelledby={`tab-${activeTab}`}
-                className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 sm:gap-5 items-start content-start min-h-[500px] sm:min-h-[380px]"
+                className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-5 items-start content-start min-h-[500px] sm:min-h-[380px]"
             >
                 {filteredSkills.map((skill) => {
                     const IconComponent = skill.icon;

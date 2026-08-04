@@ -5,7 +5,7 @@ export default function AboutSection() {
     return (
         <section id="about" className="relative py-20 lg:py-24 bg-slate-50/70 overflow-hidden">
             {/* Dynamic Background Glows */}
-            <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[500px] h-[500px] bg-purple-400/10 blur-[150px] rounded-full -z-10 pointer-events-none" />
+            <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-125 h-125 bg-purple-400/10 blur-[150px] rounded-full -z-10 pointer-events-none" />
 
             <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
                 {/* Header */}
@@ -15,7 +15,7 @@ export default function AboutSection() {
                         <span>Developer Roadmap</span>
                     </div>
                     <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-brand-dark tracking-tight leading-tight">
-                        My Journey <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-primary via-purple-600 to-indigo-600">&amp; Evolution</span>
+                        My Journey <span className="text-transparent bg-clip-text bg-linear-to-r from-brand-primary via-purple-600 to-indigo-600">&amp; Evolution</span>
                     </h2>
                     <p className="mt-4 text-base sm:text-lg text-slate-600 max-w-2xl font-normal leading-relaxed">
                         From coding on a mobile screen to becoming a top 13% SCIC developer—here is my step-by-step roadmap.

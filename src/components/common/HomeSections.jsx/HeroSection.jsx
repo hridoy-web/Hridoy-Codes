@@ -9,7 +9,7 @@ export default function HeroSection() {
     <section className="relative min-h-[calc(100vh-80px)] flex items-center justify-center pt-28 pb-16 overflow-hidden bg-slate-50/50">
 
       {/* Background Glows */}
-      <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[500px] h-[300px] bg-gradient-to-tr from-brand-primary/10 to-purple-400/20 blur-[120px] rounded-full -z-10 pointer-events-none" />
+      <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-125 h-125 bg-linear-to-tr from-brand-primary/10 to-purple-400/20 blur-[120px] rounded-full -z-10 pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
@@ -29,7 +29,7 @@ export default function HeroSection() {
             {/* Main Headline */}
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-brand-dark tracking-tight leading-tight mb-6 font-sans">
               Hi, I&apos;m <span className="text-brand-primary">Hridoy Chowdhury</span>. <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-primary via-purple-600 to-indigo-600">
+              <span className="text-transparent bg-clip-text bg-linear-to-r from-brand-primary via-purple-600 to-indigo-600">
                 Full-Stack MERN Developer
               </span>
             </h1>
